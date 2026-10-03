@@ -15,6 +15,12 @@ export type Fixture = {
   probability: string;
 };
 
+export type DashboardMetric = {
+  label: string;
+  value: string;
+  trend: string;
+};
+
 export const fixtures: Fixture[] = [
   {
     id: 1,
@@ -84,6 +90,33 @@ export const fixtures: Fixture[] = [
   },
 ];
 
-export function getFixtures() {
+export const dashboardMetrics: DashboardMetric[] = [
+  { label: 'Acurácia', value: '68.4%', trend: '+3.2%' },
+  { label: 'Palpites hoje', value: '12', trend: '+5' },
+  { label: 'ROI', value: '+18.7%', trend: '+2.1%' },
+  { label: 'Favoritos', value: '24', trend: '+8' },
+];
+
+export function getFixtures(): Fixture[] {
   return fixtures;
+}
+
+export function getFixtureById(id: number): Fixture | undefined {
+  return fixtures.find((fixture) => fixture.id === id);
+}
+
+export function getDashboardMetrics(): DashboardMetric[] {
+  return dashboardMetrics;
+}
+
+export function getFeaturedFixtures(): Fixture[] {
+  return fixtures.slice(0, 3);
+}
+
+export function getLeagueSummary() {
+  return {
+    premier: 'Arsenal e City lideram a forma na Premier League.',
+    serieA: 'Inter chega em boa fase e sustenta uma linha defensiva sólida.',
+    brazuca: 'Palmeiras tem maior volume de criação nos últimos cinco jogos.',
+  };
 }
