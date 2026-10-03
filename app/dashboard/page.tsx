@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { AuthForm } from '@/components/auth-form';
 
 export default function SignupPage() {
   return (
@@ -25,37 +26,12 @@ export default function SignupPage() {
 
           <h2 className="mb-6 text-2xl font-black">Criar conta</h2>
 
-          <form className="space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label className="mb-2 block text-sm text-slate-300">Nome</label>
-                <input type="text" placeholder="Seu nome" className="w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base outline-none placeholder:text-slate-500 focus:border-emerald-500" />
-              </div>
-              <div>
-                <label className="mb-2 block text-sm text-slate-300">Sobrenome</label>
-                <input type="text" placeholder="Sobrenome" className="w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base outline-none placeholder:text-slate-500 focus:border-emerald-500" />
-              </div>
-            </div>
+          <AuthForm mode="signup" />
 
-            <div>
-              <label className="mb-2 block text-sm text-slate-300">E-mail</label>
-              <input type="email" placeholder="seu@email.com" className="w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base outline-none placeholder:text-slate-500 focus:border-emerald-500" />
-            </div>
-
-            <div>
-              <label className="mb-2 block text-sm text-slate-300">Senha</label>
-              <input type="password" placeholder="••••••••" className="w-full rounded-2xl border border-white/10 bg-slate-950 px-4 py-3 text-base outline-none placeholder:text-slate-500 focus:border-emerald-500" />
-            </div>
-
-            <div className="flex items-center gap-2 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-sm text-emerald-300">
-              <ShieldCheck className="h-4 w-4" />
-              Sua conta será protegida com autenticação segura.
-            </div>
-
-            <button type="submit" className="w-full rounded-2xl bg-emerald-500 px-4 py-3 font-bold text-slate-950 transition hover:bg-emerald-400">
-              Criar conta
-            </button>
-          </form>
+          <div className="mt-5 flex items-center justify-center gap-2 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-sm text-emerald-300">
+            <ShieldCheck className="h-4 w-4" />
+            Sua conta será protegida com autenticação segura.
+          </div>
 
           <div className="mt-5 text-center text-sm text-slate-400">
             Já tem conta? <Link href="/login" className="font-semibold text-emerald-300">Entrar</Link>
