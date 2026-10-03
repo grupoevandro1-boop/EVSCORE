@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ArrowRight, BarChart3, CalendarDays, Flame, ShieldCheck, Star, TrendingUp, Trophy, Users } from 'lucide-react';
 import { getFixtures } from '@/lib/data';
 
@@ -20,8 +21,12 @@ export default function HomePage() {
             <h1 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">Prognósticos inteligentes para o futebol</h1>
           </div>
           <div className="flex items-center gap-3">
-            <button className="rounded-full border border-white/10 bg-slate-900 px-4 py-2 text-sm font-medium text-slate-200">Entrar</button>
-            <button className="rounded-full bg-emerald-500 px-4 py-2 text-sm font-bold text-slate-950 shadow-soft transition hover:bg-emerald-400">Criar conta</button>
+            <Link href="/login" className="rounded-full border border-white/10 bg-slate-900 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-emerald-500/40 hover:text-emerald-300">
+              Entrar
+            </Link>
+            <Link href="/signup" className="rounded-full bg-emerald-500 px-4 py-2 text-sm font-bold text-slate-950 shadow-soft transition hover:bg-emerald-400">
+              Criar conta
+            </Link>
           </div>
         </header>
 
@@ -38,10 +43,12 @@ export default function HomePage() {
               Dashboard completo com odds, tendências, históricos e previsões para partidas de alto valor em ligas europeias e nacionais.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <button className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-3 font-semibold text-slate-950 transition hover:bg-emerald-400">
+              <Link href="/dashboard" className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-3 font-semibold text-slate-950 transition hover:bg-emerald-400">
                 Ver palpites <ArrowRight className="h-4 w-4" />
-              </button>
-              <button className="rounded-full border border-white/15 bg-white/5 px-5 py-3 font-semibold text-white">Explorar ligas</button>
+              </Link>
+              <Link href="/dashboard" className="rounded-full border border-white/15 bg-white/5 px-5 py-3 font-semibold text-white transition hover:bg-white/10">
+                Explorar ligas
+              </Link>
             </div>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -84,7 +91,7 @@ export default function HomePage() {
         <section className="mt-10">
           <div className="mb-5 flex items-center justify-between">
             <h3 className="text-xl font-black">Jogos em destaque</h3>
-            <button className="text-sm font-semibold text-emerald-300">Ver todos</button>
+            <Link href="/dashboard" className="text-sm font-semibold text-emerald-300">Ver todos</Link>
           </div>
           <div className="grid gap-4 xl:grid-cols-3">
             {featured.map((fixture) => (
